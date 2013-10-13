@@ -1,0 +1,46 @@
+//extends layout
+
+//block content
+//    h1.
+//        User List
+//    ul
+//        each recipe, i in recipelist
+//            li
+//                = recipe.name 
+
+extends layout
+
+block content
+
+	.header
+		ul.nav.nav-pills.pull-right
+			li.dropdown	
+				a.dropdown-toggle(data-toggle="dropdown") Dropdown
+				ul.dropdown-menu
+					each recipe, i in recipelist
+						li
+							= recipe.name	
+		h2.text-muted Deelish
+
+	div
+		img(src='/img/dd.jpg')	
+	div
+		ul
+			each recipe, i in recipelist
+				li
+					= recipe.name 	
+				li
+					= recipe.ingredient
+				li
+					= recipe.note
+
+	div
+		table
+			thead
+				tr: th Cocktails
+			tbody
+				each recipe, i in recipelist
+					tr
+						td 
+							#{recipe.name} #{recipe.ingredient} - #{recipe.note}				
+

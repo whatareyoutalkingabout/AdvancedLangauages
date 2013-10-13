@@ -1,0 +1,60 @@
+extends layout
+
+block content
+    .navbar-wrapper
+      .container
+        .navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#') Project name
+            .navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li.active
+                  a(href='#') Cocktails
+                li
+                  a(href='#about') Food
+                li
+                  a(href='newrecipe') Add a Recipe                  
+
+        hr.featurette-divider
+        .row.featurette
+          .col-md-7
+            h2.featurette-heading
+              h1=title
+              span.text-muted anything goes
+            p.lead
+              form#formAddUser(name="addrecipe",method="post",action="/addrecipe")
+                  p 
+                    input#inputRecipe(type="text", placeholder="recipename", name="recipename")
+                  p 
+                    select(type="text", placeholder="typeOfRecipe", name="typeOfRecipe")
+                      option(value="cocktail") Cocktail
+                      option(value="food") Food
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient1", name="ingredient1")
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient2", name="ingredient2")
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient3", name="ingredient3")	
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient4", name="ingredient4")
+                  p 
+                    textarea#inputRecipe(type="text", placeholder="note", name="note", rows="4", col="60")  
+                  p 
+                    button#btnSubmit(type="submit") submit            
+          .col-md-5
+            img.featurette-image.img-responsive(src='data:image/png;base64,', data-src='holder.js/500x500/auto', alt='Generic placeholder image')
+        hr.featurette-divider
+
+        footer
+          p.pull-right
+            a(href='#') Back to top
+          p
+            | &copy; 2013 Company&comma; Inc&period; &middot;
+            a(href='#') Privacy
+            | &middot;
+            a(href='#') Terms          

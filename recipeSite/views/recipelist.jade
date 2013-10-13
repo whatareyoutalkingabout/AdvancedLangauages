@@ -1,0 +1,122 @@
+extends layout
+
+block content
+    .navbar-wrapper
+      .container
+        .navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#') gregGree Recipes
+            .navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='newrecipe') Add a Recipe                  
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Cocktail List
+                    b.caret
+                  ul.dropdown-menu
+                    each dr in drinks_data
+                      li
+                        a(href="recipes/#key=#{dr.name}", value="#{dr.name}")= dr.name	
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Food List
+                    b.caret
+                  ul.dropdown-menu
+                    each fd in foods_data
+                      li
+                        = fd.name                         
+
+    #myCarousel.carousel.slide
+      ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        li(data-target='#myCarousel', data-slide-to='1')
+        li(data-target='#myCarousel', data-slide-to='2')
+      .carousel-inner
+        .item.active
+          img(src='/img/cocktails.jpg', alt='First slide')
+          .container
+            .carousel-caption
+              h1 Recipes for food and drink
+              p
+                | This site is a recipe site
+        .item
+          img(src='/img/kababs.jpg', alt='Second slide')
+          .container
+            .carousel-caption
+              h1 Another? Please help yourself
+              p
+                | These are the finer things in life
+        .item
+          img#imgSize(src='/img/summer-drinks.jpg', alt='Third slide')
+          .container
+            .carousel-caption
+              h1 One more for good measure
+              p
+                | Oh la la!
+      a.left.carousel-control(href='#myCarousel', data-slide='prev')
+        span.glyphicon.glyphicon-chevron-left
+      a.right.carousel-control(href='#myCarousel', data-slide='next')
+        span.glyphicon.glyphicon-chevron-right
+
+    .container.marketing
+
+      .row
+        .col-lg-6
+          #recCase 
+            .col-sm-2 
+            h2 Cocktail
+              img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
+            p
+              each drink, i in oneDrink
+                -console.log(drink.ingredient)
+                  p.text-large-ul.text-center= drink.name
+                  | Ingredients 
+                ul  
+                  each ingred in drink.ingredient  	
+                    li
+                      = ingred
+                    p
+                | Directions      
+                ol
+                  li
+                    p= drink.note      
+
+        .col-lg-6
+          #recCase 
+            .col-sm-2 
+            h2 Food
+              img.img-centered(src='/img/choc-rasberry.png', data-src='holder.js/140x140', alt='Generic placeholder image')
+            p
+              each foodOne, i in oneFood
+                -console.log(foodOne.ingredient)
+                p  
+                div#recipeDiv
+                  p.text-large-ul.text-center= foodOne.name 
+                div#recipeDiv
+                  | Ingredients  
+                each ing in foodOne.ingredient   
+                  div#recipeDivIngred
+                    = ing
+                  p
+                div#recipeDiv
+                  p.text-center= foodOne.note
+
+      footer
+        p.pull-right
+          a(href='#') Back to top
+        p
+          | &copy; 2013 greeGree Company&comma; Inc&period; &middot;
+
+    //script(src='../../assets/js/jquery.js')
+    //script(src='../../dist/js/bootstrap.min.js')
+    //script(src='../../assets/js/holder.js')
+    script(type='text/javascript')
+      var pairs = window.location.hash.substr(1).split('&')
+      //alert(pairs);
+    
