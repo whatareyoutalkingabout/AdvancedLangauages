@@ -7,80 +7,12 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-//passes data to reciplist.jade
-// exports.recipelist = function(db) {
-//     return function(req, res) {
-//         var collection = db.get('recipecollection'); //sets the DB collection
-//         collection.find({},{},function(e,docs){ //query DB
-//             res.render('recipelist', { //pass on data
-//                 "recipelist" : docs
-//             });
-//         });
-//     };
-// };
-
-// exports.myrecipe = function(db){
-//         var mychoice  = 'Fried PB&B';
-
-//         collection.find({"name":mychoice},{},function(e,myrec){ //query DB
-//             onerecipe = myrec;
-//         });
-//         return function(req, res) {     
-//         res.render('myrecipe', { //pass on data
-//         "my_recipe": myrec
-//         });
-// }
-
-//passes data to reciplist.jade
-// exports.recipelist = function(req, res) {
-    
-//         var collection = db.get('recipecollection'); //sets the DB collection
-//         var drinks;
-//         var foods;
-//         var choice  = '20th Century';
-//         var key = req;
-//         console.log(key.params);
-//         //var qs = new Querystring();
-//         //var key = qs.get("key");
-//         var test = choice;
-//         // var byName = $.getUrlVar('name');
-//         collection.find({"type":"cocktail"},{},function(e,drink){ //query DB
-//             drinks = drink;
-//         });
-//         collection.find({"type":"food"},{},function(e,food){ //query DB
-//             foods = food;
-//         }); 
-//         collection.find({"name": test},{},function(e,drinkItem){ //query DB
-//             oneDrink = drinkItem;
-//         });
-//         collection.find({"name":"Fried PB&B"},{},function(e,foodItem){ //query DB
-//             oneFood = foodItem;
-//         }); 
-//         // collection.find({mychoice},{},function(e,myrec){ //query DB
-//         //     onerecipe = myrec;
-//         // });                        
-//         console.log(drinks);
-//         console.log(foods);   
-//         return function(req, res) {     
-//         res.render('recipelist', { //pass on data
-//         "drinks_data" : drinks,
-//         "foods_data" : foods,
-//         "drink_one": oneDrink,
-//         "food_one": oneFood,
-//         // "my_recipe": myrec
-//         });
-//     };
-// };
-
-                // each direction in drink.note      
-                //   div#recipeDiv
-                //     = direction
-
 //For adding new data (posts)
 exports.newrecipe = function(req, res){
   res.render('newrecipe', { title: 'Add New Recipe' });
 };
 
+//KEEPING FOR REFERENCE WHILE REDOING LOAD DATA IN APP.JS
 //For adding new data (posts)
 // exports.addrecipe = function(db) {
 //     return function(req, res) {

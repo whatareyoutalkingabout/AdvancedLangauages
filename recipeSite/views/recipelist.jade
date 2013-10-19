@@ -29,9 +29,9 @@ block content
                     b.caret
                   ul.dropdown-menu
                     
-                      each dr in drinks_data
+                      each fd in foods_data
                         li
-                          a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name                          
+                          a(href="/recipes/#{fd.nameid}", value="#{fd.name}")= fd.name                          
 
     #myCarousel.carousel.slide
       ol.carousel-indicators
@@ -71,11 +71,11 @@ block content
         .col-lg-6
           #recCase 
             .col-sm-2 
-            h2 Cocktail
+            h2 Recipe
               img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
             p
             
-              each dk in drink_one
+              each dk in recipe_one
                 p.text-large-ul.text-center= dk.name
                 =dk.note
                 | Ingredients 
@@ -88,26 +88,6 @@ block content
                 ol
                   li
                     p= dk.note      
-        .col-lg-6
-          #recCase 
-            .col-sm-2 
-            h2 Food
-              img.img-centered(src='/img/choc-rasberry.png', data-src='holder.js/140x140', alt='Generic placeholder image')
-            p
-              each dk in drink_one
-                p.text-large-ul.text-center= dk.name
-                =dk.note
-                | Ingredients 
-                ul  
-                  each ingred in dk.ingredient    
-                    li
-                      = ingred
-                    p
-                | Directions      
-                ol
-                  li
-                    p= dk.note 
-
       footer
         p.pull-right
           a(href='#') Back to top
