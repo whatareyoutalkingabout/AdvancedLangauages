@@ -29,6 +29,7 @@ img{
     background-color: lightgrey;
     font-family: Palatino, serif;
     box-shadow: 5px 5px 5px #888888;
+    margin: 10px auto;
 }
 
 #recipeDiv{

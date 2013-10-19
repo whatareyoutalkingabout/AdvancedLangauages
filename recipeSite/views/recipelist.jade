@@ -22,15 +22,16 @@ block content
                   ul.dropdown-menu
                     each dr in drinks_data
                       li
-                        a(href="recipes/#key=#{dr.name}", value="#{dr.name}")= dr.name	
+                        a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name	
                 li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
                     | Food List
                     b.caret
                   ul.dropdown-menu
-                    each fd in foods_data
-                      li
-                        = fd.name                         
+                    
+                      each dr in drinks_data
+                        li
+                          a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name                          
 
     #myCarousel.carousel.slide
       ol.carousel-indicators
@@ -42,7 +43,7 @@ block content
           img(src='/img/cocktails.jpg', alt='First slide')
           .container
             .carousel-caption
-              h1 Recipes for food and drink
+              h1 Recipes for drink and food
               p
                 | This site is a recipe site
         .item
@@ -73,50 +74,43 @@ block content
             h2 Cocktail
               img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
             p
-              each drink, i in oneDrink
-                -console.log(drink.ingredient)
-                  p.text-large-ul.text-center= drink.name
-                  | Ingredients 
+            
+              each dk in drink_one
+                p.text-large-ul.text-center= dk.name
+                =dk.note
+                | Ingredients 
                 ul  
-                  each ingred in drink.ingredient  	
+                  each ingred in dk.ingredient  	
                     li
                       = ingred
                     p
                 | Directions      
                 ol
                   li
-                    p= drink.note      
-
+                    p= dk.note      
         .col-lg-6
           #recCase 
             .col-sm-2 
             h2 Food
               img.img-centered(src='/img/choc-rasberry.png', data-src='holder.js/140x140', alt='Generic placeholder image')
             p
-              each foodOne, i in oneFood
-                -console.log(foodOne.ingredient)
-                p  
-                div#recipeDiv
-                  p.text-large-ul.text-center= foodOne.name 
-                div#recipeDiv
-                  | Ingredients  
-                each ing in foodOne.ingredient   
-                  div#recipeDivIngred
-                    = ing
-                  p
-                div#recipeDiv
-                  p.text-center= foodOne.note
+              each dk in drink_one
+                p.text-large-ul.text-center= dk.name
+                =dk.note
+                | Ingredients 
+                ul  
+                  each ingred in dk.ingredient    
+                    li
+                      = ingred
+                    p
+                | Directions      
+                ol
+                  li
+                    p= dk.note 
 
       footer
         p.pull-right
           a(href='#') Back to top
         p
           | &copy; 2013 greeGree Company&comma; Inc&period; &middot;
-
-    //script(src='../../assets/js/jquery.js')
-    //script(src='../../dist/js/bootstrap.min.js')
-    //script(src='../../assets/js/holder.js')
-    script(type='text/javascript')
-      var pairs = window.location.hash.substr(1).split('&')
-      //alert(pairs);
     
