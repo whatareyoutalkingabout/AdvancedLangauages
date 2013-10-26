@@ -1,53 +1,54 @@
 extends layout
 
 block content
-    .navbar-wrapper
-      .container
-        .navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='#') gregGree Recipes
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
+    nav.navbar.navbar-default.nav-fixed-top(role="navigation")
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand.title(href='#') My Recipes
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+            a(href='../newrecipe') Add a Recipe                  
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              | Cocktail List
+              b.caret
+            ul.dropdown-menu
+              each dr in drinks_data
                 li
-                  a(href='newrecipe') Add a Recipe                  
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Cocktail List
-                    b.caret
-                  ul.dropdown-menu
-                    each dr in drinks_data
-                      li
-                        a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name	
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Food List
-                    b.caret
-                  ul.dropdown-menu
-                    
-                      each fd in foods_data
-                        li
-                          a(href="/recipes/#{fd.nameid}", value="#{fd.name}")= fd.name                          
+                  a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name	
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              | Food List
+              b.caret
+            ul.dropdown-menu
+              
+                each fd in foods_data
+                  li
+                    a(href="/recipes/#{fd.nameid}", value="#{fd.name}")= fd.name                          
+        form.navbar-form.navbar-right(role='search')
+          .form-group
+            input.form-control(type='text', placeholder='Search')
+          button.btn.btn-default(type='submit') Submit
 
-    #myCarousel.carousel.slide
+    #myCarousel.carousel.slide.carouselContainer
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
         li(data-target='#myCarousel', data-slide-to='1')
         li(data-target='#myCarousel', data-slide-to='2')
       .carousel-inner
         .item.active
-          img(src='/img/cocktails.jpg', alt='First slide')
+          img(src='/img/barBottle.jpg', alt='First slide')
           .container
             .carousel-caption
               h1 Recipes for drink and food
               p
                 | This site is a recipe site
         .item
-          img(src='/img/kababs.jpg', alt='Second slide')
+          img(src='/img/roe.jpg', alt='Second slide')
           .container
             .carousel-caption
               h1 Another? Please help yourself
@@ -61,33 +62,31 @@ block content
               p
                 | Oh la la!
       a.left.carousel-control(href='#myCarousel', data-slide='prev')
-        span.glyphicon.glyphicon-chevron-left
       a.right.carousel-control(href='#myCarousel', data-slide='next')
-        span.glyphicon.glyphicon-chevron-right
 
     .container.marketing
 
       .row
         .col-lg-6
           #recCase 
-            .col-sm-2 
-            h2 Recipe
               img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
             p
-            
-              each dk in recipe_one
-                p.text-large-ul.text-center= dk.name
-                =dk.note
-                | Ingredients 
-                ul  
-                  each ingred in dk.ingredient  	
-                    li
-                      = ingred
-                    p
-                | Directions      
-                ol
+        .col-lg-6  
+          #recCase  
+            each drink, i in recipe_one
+              -console.log(drink.ingredient)
+              p.text-large-ul.text-center= drink.name
+              | Ingredients 
+              ul  
+                each ingred in drink.ingredient   
                   li
-                    p= dk.note      
+                    = ingred
+                  p
+              | Directions      
+              ol
+                li
+                  p= drink.note  
+   
       footer
         p.pull-right
           a(href='#') Back to top

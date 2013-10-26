@@ -12,6 +12,9 @@ exports.newrecipe = function(req, res){
   res.render('newrecipe', { title: 'Add New Recipe' });
 };
 
+// module.exports = function(includeFile){
+//     return require('./'+includeFile);
+// };
 //KEEPING FOR REFERENCE WHILE REDOING LOAD DATA IN APP.JS
 //For adding new data (posts)
 // exports.addrecipe = function(db) {
@@ -29,7 +32,7 @@ exports.newrecipe = function(req, res){
 //         var notE = req.body.note;                                
 
 //         // Set our collection
-//         var collection = db.get('recipecollection');
+//         var collection = db.get('Drinks');
 
 //         // Submit to the DB
 //         collection.insert({

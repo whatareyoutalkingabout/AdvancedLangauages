@@ -27,23 +27,72 @@ block content
               h1=title
               span.text-muted anything goes
             p.lead
-              form#formAddUser(name="addrecipe",method="post",action="/addrecipe")
+              div.col-lg-4
+                form#formAddUser(name="addrecipe",method="post",action="/addrecipe")
+                  
                   p 
-                    input#inputRecipe(type="text", placeholder="recipename", name="recipename")
+                    input#inputRecipe(type="text", placeholder="Recipe Name", name="recipename")
                   p 
-                    select(type="text", placeholder="typeOfRecipe", name="typeOfRecipe")
+                    input#inputRecipe(type="text", placeholder="Choose an ID", name="nameid")                  
+                  p 
+                    select#typeOf(type="text", placeholder="Type Of Recipe", name="typeOfRecipe", style="width:95%")
                       option(value="cocktail") Cocktail
                       option(value="food") Food
+                  
                   p 
-                    input#inputRecipe(type="text", placeholder="ingredient1", name="ingredient1")
+                    select#glass(type="text", placeholder="Type Of Glass", name="typeOfglass", style="width:95%")
+                      option(value="Collins") Collins Glass
+                      option(value="Highball") Highball 
+                      option(value="Lowball") Lowball
+                      option(value="Martini") Martini
+                      option(value="Cocktail") Cocktail 
+                      option(value="Champagne Flute") Champagne Flute
+                      option(value="Champagne coupe") Champagne coupe 
+                      option(value="Wine Glass") Wine Glass 
+                  .col-lg-4
                   p 
-                    input#inputRecipe(type="text", placeholder="ingredient2", name="ingredient2")
+                    input#inputRecipe(type="text", placeholder="Garnish", name="garnish") 
+            div.col-lg-4
                   p 
-                    input#inputRecipe(type="text", placeholder="ingredient3", name="ingredient3")	
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient1")
+                  .col-lg-4
                   p 
-                    input#inputRecipe(type="text", placeholder="ingredient4", name="ingredient4")
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient2")
+                  .col-lg-4
                   p 
-                    textarea#inputRecipe(type="text", placeholder="note", name="note", rows="4", col="60")  
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient3")	
+                  .col-lg-4
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient4")
+                  .col-lg-4
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient5")
+                  .col-lg-4
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient6")
+                  .col-lg-4
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient7") 
+                  .col-lg-4
+                  p 
+                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient8")
+                  .col-lg-4
+            div.col-lg-4
+                  p 
+                    textarea(type="text", placeholder="note", name="note1", rows="2", col="90")  
+                  .col-lg-4
+                  p 
+                    textarea(type="text", placeholder="note", name="note2", rows="2", col="90")                      
+                  
+                  .col-lg-4
+                  p 
+                    textarea(type="text", placeholder="note", name="note3", rows="2", col="90")  
+                  p 
+                    textarea(type="text", placeholder="note", name="note4", rows="2", col="90")
+                  p 
+                    textarea(type="text", placeholder="note", name="note5", rows="2", col="90")  
+                  p 
+                    textarea(type="text", placeholder="note", name="note6", rows="2", col="90")
                   p 
                     button#btnSubmit(type="submit") submit            
           .col-md-5
