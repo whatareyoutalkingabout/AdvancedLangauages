@@ -4,16 +4,16 @@ var routes = require('./routes'); //accesses routes folder
 var user = require('./routes/user'); //accesses routes/user
 var http = require('http'); //gets http framework
 var path = require('path'); //used to set paths
-var mongoose = require ("mongoose"); // The reason for this demo.
+// var mongoose = require ("mongoose"); // The reason for this demo.
 
 // Here we find an appropriate database to connect to, defaulting to
 // localhost if we don't find one.  
 // var uristring = 
 //   process.env.MONGOLAB_URI || 
 //   process.env.MONGOHQ_URL || 
-//   'recipetest:recipetest@ds049288.mongolab.com:49288/recipes';
+//   'recipetest:recipetest@ds051868.mongolab.com:51868/recipes';
 
-var databaseUrl = "recipetest:recipetest@ds049288.mongolab.com:49288/recipes"; // "username:password@example.com/mydb"
+var databaseUrl = "recipetest:recipetest@ds051868.mongolab.com:51868/recipes"; // "username:password@example.com/mydb"
 var collections = ['Drinks']
 var db = require("mongojs").connect(databaseUrl, collections);
 
@@ -55,6 +55,18 @@ app.use(express.static(path.join(__dirname, 'public'))); //sets public directory
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+//Error Handling Handles 500 error, might need to develop more surroding this.
+app.use(function(err, req, res, next){
+  res.status(err.status || 500);
+  res.render('500.jade', {title: 'something broke'});
+});
+
+// handle 404 errors by redirect to 404
+//*MUST BE LAST OF APP.USE
+app.use(function(req,res){
+    res.render('404.jade', {title: "Page not found"});
+});
 
 app.get('/', routes.index); //sets start path to index in routes folder
 app.get('/recipes', recipes); //when user navigates to to this route we pass the database object
@@ -112,6 +124,8 @@ function insert(req,res){
 		});
 }
 
+// var Drinks
+;
 //used to pass data to webpages
 function recipes(req, res) {
 
@@ -124,29 +138,99 @@ function recipes(req, res) {
 	//   note: {type:Array}
 	// });
 
-	// var Recipes = mongoose.model('Drinks', recipeSchema);
+	// Drinks = mongoose.model('Drinks', recipeSchema);
+	// Drinks.find(function(err, recipe){
+	// 	if(err) console.log("ERROR!!");
+	// 	console.log(recipe);
+	// 	var twentieth = new Drinks({name: '20th Century'});
+	// 	res.render('recipelist', {
+	//        drinks_data: recipe,
+	//        foods_data: recipe,
+	//        recipe_one: twentieth
+	//     });
+	// });
+// require('models.js').initialize();
 
- //  Recipes.find({}).exec(function(err, result) { 
- //    if (!err) { 
- //      // res.write(html1 + JSON.stringify(result, undefined, 2) +  html2 + result.length + html3);
- //      // Let's see if there are any senior citizens (older than 64) with the last name Doe using the query constructor
- //      var query = Recipes.find({'type': 'cocktail'}); // (ok in this example, it's all entries)
 
- //      // query.where('age').gt(64);
- //      query.exec(function(err, cocktail) {
-	// 	if (!err) {
-	// 		res.render('recipelist', { //pass on data
-	// 	        drinks_data : cocktail});
-	// 	        console.log(cocktail);
-	// 	  // res.end(html4 + JSON.stringify(result, undefined, 2) + html5 + result.length + html6);
-	// 	} else {
-	// 	  res.end('Error in second query. ' + err)
-	// 	}
- //      });
- //    } else {
- //      res.end('Error in first query. ' + err)
- //    };
- //  });
+  // Recipes.find({}).exec(function(err, result) { 
+  //   if (!err) { 
+  //     // res.write(html1 + JSON.stringify(result, undefined, 2) +  html2 + result.length + html3);
+  //     // Let's see if there are any senior citizens (older than 64) with the last name Doe using the query constructor
+  //     var query = Recipes.find({'type': 'cocktail'}); // (ok in this example, it's all entries)
+
+  //     // query.where('age').gt(64);
+  //     query.exec(function(err, cocktail) {
+		// if (!err) {
+		// 	res.render('recipelist', { //pass on data
+		//         drinks_data : cocktail});
+		//         console.log(cocktail);
+		//   // res.end(html4 + JSON.stringify(result, undefined, 2) + html5 + result.length + html6);
+		// } else {
+		//   res.end('Error in second query. ' + err)
+		// }
+  //     });
+  //   } else {
+  //     res.end('Error in first query. ' + err)
+  //   };
+  // });
+// if(req.params.key == null){
+// 	Drinks.find({}, function (err, result) {
+// 	  if(err) {/*error!!!*/}
+// 		var query = Drinks.find({'type': 'cocktail'});
+// 		query.exec(function(err, cocktail) {
+// 		  if(err) {/*error!!!*/}
+// 		  var foodquery = Drinks.find({'type': 'food'});
+// 			foodquery.exec(function(err, food) {
+// 		    if(err) {/*error!!!*/}
+// 			    var onequery = Drinks.find({'nameid': '20thCentury'});
+// 				onequery.exec(function(err, oneDrink) {
+// 			    if(err) {/*error!!!*/}
+// 			    res.render('recipelist', {
+// 			       drinks_data: cocktail,
+// 			       foods_data: food,
+// 			       recipe_one: oneDrink
+// 			    });
+// 			});
+// 		  });
+// 		});
+// 	});
+// 	} else{
+// 	Drinks.find({}, function (err, result) {
+// 	  if(err) {/*error!!!*/}
+// 		var query1 = Drinks.find({'type': 'cocktail'});
+// 		query1.exec(function(err, cocktail) {
+// 		  if(err) {/*error!!!*/}
+// 		  var foodquery2 = Drinks.find({'type': 'food'});
+// 			foodquery2.exec(function(err, food) {
+// 		    if(err) {/*error!!!*/}
+// 			    var onequery3 = Drinks.find({'nameid': '20thCentury'});
+// 				onequery3.exec(function(err, oneDrink) {
+// 			    if(err) {/*error!!!*/}
+// 			    res.render('recipelist', {
+// 			       drinks_data: cocktail,
+// 			       foods_data: food,
+// 			       recipe_one: oneDrink
+// 			    });
+// 			});
+// 		  });
+// 		});
+// 	});
+// 	}
+// }
+// var userModel = mongoose.model('users');
+// var articleModel = mongoose.model('articles');
+// userModel.find({}, function (err, db_users) {
+//   if(err) {/*error!!!*/}
+//   articleModel.find({}, function (err, db_articles) {
+//     if(err) {/*error!!!*/}
+//     res.render('profile/profile', {
+//        users: db_users,
+//        articles: db_articles
+//     });
+//   });
+// });
+
+
 
 // app.get('/help', function(req, res){
 //   Material.find(function (err, materials){
@@ -163,16 +247,19 @@ function recipes(req, res) {
 			if(err || !Drinks.length) console.log("User not found.");
 			else Drinks.forEach(function(designer){
 			drinks = Drinks;
+			console.log(drinks);
 
 				db.Drinks.find({type: "food"}, function(err, Food){
 					if(err || !Food.length) console.log("User not found.");
 					else Food.forEach(function(des){
 					foods = Food;
+					console.log(foods);
 
 						db.Drinks.find({nameid: "20thCentury"}, function(err, drink){
 							if(err) console.log(err);
 							else { 
 								oneDrink = drink;  
+								console.log(oneDrink);
 						        res.render('recipelist', { //pass on data
 						        "drinks_data" : drinks,
 						        "foods_data" : foods,

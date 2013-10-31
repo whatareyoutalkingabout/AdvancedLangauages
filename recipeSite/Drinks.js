@@ -22,5 +22,5 @@ module.exports = function() {
 	  ingredient: {type:Array},
 	  note: {type:Array}
     });
-    mongoose.model("Drinks", Drinks);
+    mongoose.model("drinks", Drinks);
 };

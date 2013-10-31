@@ -19,7 +19,7 @@ block content
             ul.dropdown-menu
               each dr in drinks_data
                 li
-                  a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name	
+                  a(href="/recipes/#{dr.nameis}", value="#{dr.name}")= dr.name	
           li.dropdown
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               | Food List
@@ -46,7 +46,7 @@ block content
             .carousel-caption
               h1 Recipes for drink and food
               p
-                | This site is a recipe site
+                | This page was put together as a personal recipe collection. Please feel free to enjoy what you find.
         .item
           img(src='/img/roe.jpg', alt='Second slide')
           .container
@@ -74,7 +74,6 @@ block content
         .col-lg-6  
           #recCase  
             each drink, i in recipe_one
-              -console.log(drink.ingredient)
               p.text-large-ul.text-center= drink.name
               | Ingredients 
               ul  
@@ -84,8 +83,9 @@ block content
                   p
               | Directions      
               ol
-                li
-                  p= drink.note  
+                each description in drink.note
+                  li
+                    p= description  
    
       footer
         p.pull-right
