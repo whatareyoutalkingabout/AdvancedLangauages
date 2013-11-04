@@ -10,15 +10,11 @@ block content
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#') Project name
+              a.navbar-brand(href='#') The recipe list
             .navbar-collapse.collapse
               ul.nav.navbar-nav
                 li.active
-                  a(href='#') Cocktails
-                li
-                  a(href='#about') Food
-                li
-                  a(href='newrecipe') Add a Recipe                  
+                  a(href='#') Recipes Page                 
 
         hr.featurette-divider
         .row.featurette
@@ -31,70 +27,57 @@ block content
                 form#formAddUser(name="addrecipe",method="post",action="/addrecipe")
                   
                   p 
-                    input#inputRecipe(type="text", placeholder="Recipe Name", name="recipename")
+                  input#inputRecipe(type="text", placeholder="Recipe Name", name="recipename")
                   p 
-                    input#inputRecipe(type="text", placeholder="Choose an ID", name="nameid")                  
+                  input#inputRecipe(type="text", placeholder="Choose an ID", name="nameid")                  
                   p 
-                    select#typeOf(type="text", placeholder="Type Of Recipe", name="typeOfRecipe", style="width:95%")
-                      option(value="cocktail") Cocktail
-                      option(value="food") Food
+                  select#typeOf(type="text", placeholder="Type Of Recipe", name="typeOfRecipe", style="width:95%")
+                    option(value="cocktail") Cocktail
+                    option(value="food") Food
                   
                   p 
-                    select#glass(type="text", placeholder="Type Of Glass", name="typeOfglass", style="width:95%")
-                      option(value="Collins") Collins Glass
-                      option(value="Highball") Highball 
-                      option(value="Lowball") Lowball
-                      option(value="Martini") Martini
-                      option(value="Cocktail") Cocktail 
-                      option(value="Champagne Flute") Champagne Flute
-                      option(value="Champagne coupe") Champagne coupe 
-                      option(value="Wine Glass") Wine Glass 
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="Garnish", name="garnish") 
-            div.col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient1")
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient2")
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient3")	
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient4")
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient5")
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient6")
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient7") 
-                  .col-lg-4
-                  p 
-                    input#inputRecipe(type="text", placeholder="ingredient", name="ingredient8")
-                  .col-lg-4
-            div.col-lg-4
-                  p 
-                    textarea(type="text", placeholder="note", name="note1", rows="2", col="90")  
-                  .col-lg-4
-                  p 
-                    textarea(type="text", placeholder="note", name="note2", rows="2", col="90")                      
+                  select#glass(type="text", placeholder="Type Of Glass", name="typeOfglass", style="width:95%")
+                    option(value="Collins") Collins Glass
+                    option(value="Highball") Highball 
+                    option(value="Lowball") Lowball
+                    option(value="Martini") Martini
+                    option(value="Cocktail") Cocktail 
+                    option(value="Champagne Flute") Champagne Flute
+                    option(value="Champagne coupe") Champagne coupe 
+                    option(value="Wine Glass") Wine Glass 
                   
-                  .col-lg-4
                   p 
-                    textarea(type="text", placeholder="note", name="note3", rows="2", col="90")  
+                  input#inputRecipe(type="text", placeholder="Garnish", name="garnish") 
                   p 
-                    textarea(type="text", placeholder="note", name="note4", rows="2", col="90")
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient1")
                   p 
-                    textarea(type="text", placeholder="note", name="note5", rows="2", col="90")  
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient2")
                   p 
-                    textarea(type="text", placeholder="note", name="note6", rows="2", col="90")
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient3")	
                   p 
-                    button#btnSubmit(type="submit") submit            
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient4")
+                  p 
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient5")
+                  p 
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient6")
+                  p 
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient7") 
+                  p 
+                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient8")
+                  p 
+                  textarea(type="text", placeholder="note", name="note1", rows="2", col="90")  
+                  p 
+                  textarea(type="text", placeholder="note", name="note2", rows="2", col="90")                      
+                  p 
+                  textarea(type="text", placeholder="note", name="note3", rows="2", col="90")  
+                  p 
+                  textarea(type="text", placeholder="note", name="note4", rows="2", col="90")
+                  p 
+                  textarea(type="text", placeholder="note", name="note5", rows="2", col="90")  
+                  p 
+                  textarea(type="text", placeholder="note", name="note6", rows="2", col="90")
+                  p 
+                  button#btnSubmit(type="submit") submit            
           .col-md-5
             img.featurette-image.img-responsive(src='data:image/png;base64,', data-src='holder.js/500x500/auto', alt='Generic placeholder image')
         hr.featurette-divider
