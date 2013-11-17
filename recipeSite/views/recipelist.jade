@@ -1,6 +1,9 @@
 extends layout
 
 block content
+
+    script(src='/socket.io/socket.io.js')
+
     nav.navbar.navbar-default.nav-fixed-top(role="navigation")
       .navbar-header
         button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -13,22 +16,16 @@ block content
           li
             a(href='../newrecipe') Add a Recipe                  
           li.dropdown
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
+            a.dropdown-toggle#cocktailList(href='#', data-toggle='dropdown')
               | Cocktail List
               b.caret
-            ul.dropdown-menu
-              each dr in drinks_data
-                li
-                  a(href="/recipes/#{dr.nameid}", value="#{dr.name}")= dr.name	
+            ul#dropCockails.dropdown-menu
           li.dropdown
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
+            a.dropdown-toggle#foodList(href='#', data-toggle='dropdown')
               | Food List
               b.caret
-            ul.dropdown-menu
-              
-                each fd in foods_data
-                  li
-                    a(href="/recipes/#{fd.nameid}", value="#{fd.name}")= fd.name                          
+            ul#dropFood.dropdown-menu
+                         
         form.navbar-form.navbar-right(role='search')
           .form-group
             input.form-control(type='text', placeholder='Search')
@@ -72,20 +69,8 @@ block content
               img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
             p
         .col-lg-6  
-          #recCase  
-            each drink, i in recipe_one
-              p.text-large-ul.text-center= drink.name
-              | Ingredients 
-              ul  
-                each ingred in drink.ingredient   
-                  li
-                    = ingred
-                  p
-              | Directions      
-              ol
-                each description in drink.note
-                  li
-                    p= description  
+          #recCase#recipeDisplay  
+
    
       footer
         p.pull-right

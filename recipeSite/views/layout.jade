@@ -4,21 +4,11 @@ html
     title= title
     script(src='/js/jquery-2.0.3.min.js')
     link(rel='stylesheet' href='/css/bootstrap.min.css')
-    link(rel='stylesheet' href='/css/bootstrap.responsive.min.css') 	
-    link(rel='stylesheet' type="text/css" href='/stylesheets/base.css')
-    link(rel='stylesheet' type="text/css" href='/select2-3.4.3/select2.css')  
-    link(href='http://fonts.googleapis.com/css?family=Fascinate+Inline' rel='stylesheet' type='text/css') 
+    link(rel='stylesheet' href='/css/bootstrap-responsive.min.css') 	
+    link(rel='stylesheet' type="text/css" href='/stylesheets/base.css') 
+    link(rel='stylesheet' href='/stylesheets/chosen.min.css') 
     script(src='/js/bootstrap.min.js')
-    script(src='/js/javascript.js')
-    script(src='/select2-3.4.3/select2.js')      
-    script 
-      $(document).ready(function() {        
-        $('.carousel').carousel({
-          interval: 4000
-        });
-      });
-
-      $(document).ready(function() { $("#typeOf").select2(); });  
-      $(document).ready(function() { $("#glass").select2(); });    	   	
+    script(src='/javascripts/javascript.js')
+    script(src='/javascripts/chosen.jquery.min.js')     
   body
     block content

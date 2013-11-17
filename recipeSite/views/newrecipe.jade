@@ -1,92 +1,108 @@
 extends layout
 
 block content
-    .navbar-wrapper
-      .container
-        .navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='#') The recipe list
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li.active
-                  a(href='#') Recipes Page                 
+  script(src='/socket.io/socket.io.js')
+  script(src='/javascripts/newrecipe.js')
+  div.page-header
+    h1 Add a new recipe
 
-        hr.featurette-divider
-        .row.featurette
-          .col-md-7
-            h2.featurette-heading
-              h1=title
-              span.text-muted anything goes
-            p.lead
-              div.col-lg-4
-                form#formAddUser(name="addrecipe",method="post",action="/addrecipe")
-                  
-                  p 
-                  input#inputRecipe(type="text", placeholder="Recipe Name", name="recipename")
-                  p 
-                  input#inputRecipe(type="text", placeholder="Choose an ID", name="nameid")                  
-                  p 
-                  select#typeOf(type="text", placeholder="Type Of Recipe", name="typeOfRecipe", style="width:95%")
-                    option(value="cocktail") Cocktail
-                    option(value="food") Food
-                  
-                  p 
-                  select#glass(type="text", placeholder="Type Of Glass", name="typeOfglass", style="width:95%")
-                    option(value="Collins") Collins Glass
-                    option(value="Highball") Highball 
-                    option(value="Lowball") Lowball
-                    option(value="Martini") Martini
-                    option(value="Cocktail") Cocktail 
-                    option(value="Champagne Flute") Champagne Flute
-                    option(value="Champagne coupe") Champagne coupe 
-                    option(value="Wine Glass") Wine Glass 
-                  
-                  p 
-                  input#inputRecipe(type="text", placeholder="Garnish", name="garnish") 
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient1")
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient2")
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient3")	
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient4")
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient5")
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient6")
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient7") 
-                  p 
-                  input#inputRecipe(type="text", placeholder="ingredient", name="ingredient8")
-                  p 
-                  textarea(type="text", placeholder="note", name="note1", rows="2", col="90")  
-                  p 
-                  textarea(type="text", placeholder="note", name="note2", rows="2", col="90")                      
-                  p 
-                  textarea(type="text", placeholder="note", name="note3", rows="2", col="90")  
-                  p 
-                  textarea(type="text", placeholder="note", name="note4", rows="2", col="90")
-                  p 
-                  textarea(type="text", placeholder="note", name="note5", rows="2", col="90")  
-                  p 
-                  textarea(type="text", placeholder="note", name="note6", rows="2", col="90")
-                  p 
-                  button#btnSubmit(type="submit") submit            
-          .col-md-5
-            img.featurette-image.img-responsive(src='data:image/png;base64,', data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-        hr.featurette-divider
+  div
+    form.form-horizontal(role="form")
+      div.form-group
+        label(for="name").col-sm-2.control-label Name
+        div.col-sm-10
+          input#name.form-control
+      div.form-group
+        label(for="nameid").col-sm-2.control-label Recipe ID
+        div.col-sm-10
+          input#nameID.form-control
+      div.form-group
+        label(for="foodType").col-sm-2.control-label Select Type
+        div.col-sm-10
+          select#foodType.form-control.chosen-select
+            option
+            option(value="cocktail") Cocktail
+            option(value="food") Food            
+      div.form-group
+        label(for="glassType").col-sm-2.control-label Select Type
+        div.col-sm-10
+          select#glassType.form-control.chosen-select
+            option
+            option(value="Collins") Collins Glass
+            option(value="Highball") Highball 
+            option(value="Lowball") Lowball
+            option(value="Martini") Martini
+            option(value="Cocktail") Cocktail 
+            option(value="Champagne Flute") Champagne Flute
+            option(value="Champagne coupe") Champagne coupe 
+            option(value="Wine Glass") Wine Glass
+      div.form-group
+        label(for="ingred1").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred1.form-control
+      div.form-group
+        label(for="ingred2").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred2.form-control
+      div.form-group
+        label(for="ingred3").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred3.form-control
+      div.form-group
+        label(for="ingred4").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred4.form-control
+      div.form-group
+        label(for="ingred5").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred5.form-control
+      div.form-group
+        label(for="ingred6").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred6.form-control      
+      div.form-group
+        label(for="ingred7").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred7.form-control
+      div.form-group
+        label(for="ingred8").col-sm-2.control-label Ingredient
+        div.col-sm-10
+          input#ingred8.form-control
+      div.form-group
+        label(for="garnish").col-sm-2.control-label Garnish
+        div.col-sm-10
+          input#garnish.form-control            
+      h4 Directions
+      div.form-group
+        label(for="note1").col-sm-2.control-label Step 1
+        div.col-sm-10
+          textarea#note1.form-control
+      div.form-group
+        label(for="note2").col-sm-2.control-label Step 2
+        div.col-sm-10
+          textarea#note2.form-control
+      div.form-group
+        label(for="note3").col-sm-2.control-label Step 3
+        div.col-sm-10
+          textarea#note3.form-control
+      div.form-group
+        label(for="note4").col-sm-2.control-label Step 4
+        div.col-sm-10
+          textarea#note4.form-control
+      div.form-group
+        label(for="note5").col-sm-2.control-label Step 5
+        div.col-sm-10
+          textarea#note5.form-control
+      div.form-group
+        label(for="note6").col-sm-2.control-label Step 6
+        div.col-sm-10
+          textarea#note6.form-control                                          
+  div#button-div
+    button#button.btn.btn-sm.btn-primary Insert to Database
+    button#button-cancel.btn.btn-sm. Cancel
 
-        footer
-          p.pull-right
-            a(href='#') Back to top
-          p
-            | &copy; 2013 Company&comma; Inc&period; &middot;
-            a(href='#') Privacy
-            | &middot;
-            a(href='#') Terms          
+    footer
+      p.pull-right
+        a(href='#') Back to top
+      p
+        | &copy; 2013 Company&comma; Inc&period; &middot;       

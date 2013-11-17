@@ -44,12 +44,12 @@ body{
 }
 .text-large-ul{
     font-size: 32px;
-    font-family: 'Fascinate Inline', cursive;
+/*    font-family: 'Fascinate Inline', cursive;*/
 }
 
 .title{
     font-size: 32px;
-    font-family: 'Fascinate Inline', cursive;
+/*    font-family: 'Fascinate Inline', cursive;*/
 }
 
 #recCase{
@@ -58,7 +58,7 @@ body{
     /*border-radius: 10px;*/
     padding: 20px;
     /*background-color: lightgrey;*/
-    font-family: Palatino, serif;
+/*    font-family: Palatino, serif;*/
     color: white;
     /*box-shadow: 5px 5px 5px #888888;*/
     margin: 10px auto;
@@ -78,34 +78,41 @@ body{
     border-color: black;
 }
 */
-#input{
-    border:1px solid;
+#inputFormat{
+    width: 35%;
+    /*border:1px solid;
     border-radius:4px;
     border-color: lightblue;
-    width: 90%;
-    color: dimgray; 
+    color: dimgray; */
 }
 
-#inputRecipe{
+/*#inputRecipe{
     border:1px solid;
     border-radius: 4px;
     border-color: lightblue;
     color: black;
     height:25px;
-}
+}*/
 
-textarea{
-    border:1px solid;
+#textareaFormat{
+    width: 74%;
+/*    border:1px solid;
     border-radius: 4px;
     border-color: lightblue;
-    color: black;
+    color: black;*/
+}
+
+#button-div{
+    margin: 5px;
+    float: right;
 }
 
 #button{
-    border:1px solid;
-    border-radius:4px;
-    border-color: lightblue;
-    width: 90%;
+    margin: 5px;
+}
+
+#button-cancel{
+    margin: 5px 25px 5px 5px;
 }
 
 .textDiv{
@@ -126,4 +133,5 @@ float:left;
 float: top;
 }
 
-.btn-custom { background-color: hsl(191, 0%, 35%) !important; background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9b9b9b", endColorstr="#595959"); background-image: -khtml-gradient(linear, left top, left bottom, from(#9b9b9b), to(#595959)); background-image: -moz-linear-gradient(top, #9b9b9b, #595959); background-image: -ms-linear-gradient(top, #9b9b9b, #595959); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9b9b9b), color-stop(100%, #595959)); background-image: -webkit-linear-gradient(top, #9b9b9b, #595959); background-image: -o-linear-gradient(top, #9b9b9b, #595959); background-image: linear-gradient(#9b9b9b, #595959); border-color: #595959 #595959 hsl(191, 0%, 28.5%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.42); -webkit-font-smoothing: antialiased; }
+/*.btn-custom { background-color: hsl(191, 0%, 35%) !important; background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9b9b9b", endColorstr="#595959"); background-image: -khtml-gradient(linear, left top, left bottom, from(#9b9b9b), to(#595959)); background-image: -moz-linear-gradient(top, #9b9b9b, #595959); background-image: -ms-linear-gradient(top, #9b9b9b, #595959); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9b9b9b), color-stop(100%, #595959)); background-image: -webkit-linear-gradient(top, #9b9b9b, #595959); background-image: -o-linear-gradient(top, #9b9b9b, #595959); background-image: linear-gradient(#9b9b9b, #595959); border-color: #595959 #595959 hsl(191, 0%, 28.5%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.42); -webkit-font-smoothing: antialiased; }
+*/
