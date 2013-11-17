@@ -3,31 +3,35 @@ extends layout
 block content
   script(src='/socket.io/socket.io.js')
   script(src='/javascripts/newrecipe.js')
+  link(rel='stylesheet' href='/stylesheets/newrecipe.css') 
+
     
-  div.page-header
+  div.page-header#newRecipeHeader
     h1 Add a new recipe
+    h4 to return to recipe page click 
+      a(href='../recipes') here
 
   div
-    form.form-horizontal(role="form")
+    form.form-horizontal#form(role="form")
       div.form-group
         label(for="name").col-sm-2.control-label Name
-        div.col-sm-10
-          input#name.form-control
+        div.col-sm-9
+          input#name.form-control.deco
       div.form-group
         label(for="nameid").col-sm-2.control-label Recipe ID
-        div.col-sm-10
-          input#nameID.form-control
+        div.col-sm-9
+          input#nameID.form-control.deco
       div.form-group
         label(for="foodType").col-sm-2.control-label Select Type
-        div.col-sm-10
-          select#foodType.form-control.chosen-select
+        div.col-sm-9
+          select#foodType.form-control.chosen-select.deco
             option
             option(value="cocktail") Cocktail
             option(value="food") Food            
       div.form-group
         label(for="glassType").col-sm-2.control-label Select Type
-        div.col-sm-10
-          select#glassType.form-control.chosen-select
+        div.col-sm-9
+          select#glassType.form-control.chosen-select.deco
             option
             option(value="Collins") Collins Glass
             option(value="Highball") Highball 
@@ -38,70 +42,80 @@ block content
             option(value="Champagne coupe") Champagne coupe 
             option(value="Wine Glass") Wine Glass
       div.form-group
+        label(for="garnish").col-sm-2.control-label Garnish
+        div.col-sm-9
+          input#garnish.form-control.deco 
+      div.form-group
         label(for="ingred1").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred1.form-control
+        div.col-sm-9
+          input#ingred1.form-control.deco
       div.form-group
         label(for="ingred2").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred2.form-control
+        div.col-sm-9
+          input#ingred2.form-control.deco
       div.form-group
         label(for="ingred3").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred3.form-control
+        div.col-sm-9
+          input#ingred3.form-control.deco
       div.form-group
         label(for="ingred4").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred4.form-control
+        div.col-sm-9
+          input#ingred4.form-control.deco
       div.form-group
         label(for="ingred5").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred5.form-control
+        div.col-sm-9
+          input#ingred5.form-control.deco
       div.form-group
         label(for="ingred6").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred6.form-control      
+        div.col-sm-9
+          input#ingred6.form-control.deco 
       div.form-group
         label(for="ingred7").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred7.form-control
+        div.col-sm-9
+          input#ingred7.form-control.deco
       div.form-group
         label(for="ingred8").col-sm-2.control-label Ingredient
-        div.col-sm-10
-          input#ingred8.form-control
-      div.form-group
-        label(for="garnish").col-sm-2.control-label Garnish
-        div.col-sm-10
-          input#garnish.form-control            
+        div.col-sm-9
+          input#ingred8.form-control.deco      
       h4 Directions
       div.form-group
         label(for="note1").col-sm-2.control-label Step 1
-        div.col-sm-10
-          textarea#note1.form-control
+        div.col-sm-9
+          textarea#note1.form-control.decoArea
       div.form-group
         label(for="note2").col-sm-2.control-label Step 2
-        div.col-sm-10
-          textarea#note2.form-control
+        div.col-sm-9
+          textarea#note2.form-control.decoArea
       div.form-group
         label(for="note3").col-sm-2.control-label Step 3
-        div.col-sm-10
-          textarea#note3.form-control
+        div.col-sm-9
+          textarea#note3.form-control.decoArea
       div.form-group
         label(for="note4").col-sm-2.control-label Step 4
-        div.col-sm-10
-          textarea#note4.form-control
+        div.col-sm-9
+          textarea#note4.form-control.decoArea
       div.form-group
         label(for="note5").col-sm-2.control-label Step 5
-        div.col-sm-10
-          textarea#note5.form-control
+        div.col-sm-9
+          textarea#note5.form-control.decoArea
       div.form-group
         label(for="note6").col-sm-2.control-label Step 6
-        div.col-sm-10
-          textarea#note6.form-control                                          
+        div.col-sm-9
+          textarea#note6.form-control.decoArea
   div#button-div
     button#button.btn.btn-sm.btn-primary Insert to Database
     button#button-cancel.btn.btn-sm. Cancel
 
+  div#modalConfirm.modal.fade(aria-hidden="true",role="dialog")
+    div.modal-dialog
+      div.modal-content
+        div.modal-body#confirmRecipe
+          h1 Insert Recipe?           
+        div.modal-footer
+          button#insert-yes.btn.btn-lg.btn-success Yes
+          button.btn.btn-lg.btn-danger(data-dismiss="modal") No    
+    h4 to return to recipe page click 
+      a(href='../recipes') here
     footer
       p.pull-right
         a(href='#') Back to top

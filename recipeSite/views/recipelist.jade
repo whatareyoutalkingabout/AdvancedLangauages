@@ -12,9 +12,7 @@ block content
           span.icon-bar
         a.navbar-brand.title(href='#') My Recipes
       .navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li
-            a(href='../newrecipe') Add a Recipe                  
+        ul.nav.navbar-nav                
           li.dropdown
             a.dropdown-toggle#cocktailList(href='#', data-toggle='dropdown')
               | Cocktail List
@@ -25,12 +23,8 @@ block content
               | Food List
               b.caret
             ul#dropFood.dropdown-menu
-                         
-        form.navbar-form.navbar-right(role='search')
-          .form-group
-            input.form-control(type='text', placeholder='Search')
-          button.btn.btn-default(type='submit') Submit
-
+          li
+            a(href='../newrecipe') Add a Recipe  
     #myCarousel.carousel.slide.carouselContainer
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
@@ -48,7 +42,7 @@ block content
           img(src='/img/roe.jpg', alt='Second slide')
           .container
             .carousel-caption
-              h1 Another? Please help yourself
+              h1 Share your favourite dish or choose something somebody else has shared
               p
                 | These are the finer things in life
         .item
@@ -61,20 +55,17 @@ block content
       a.left.carousel-control(href='#myCarousel', data-slide='prev')
       a.right.carousel-control(href='#myCarousel', data-slide='next')
 
-    .container.marketing
+    .container.marketing.recipePadding
 
       .row
-        .col-lg-6
-          #recCase 
-              img.img-centered(src='/img/20th-century-cocktail.jpg', data-src='holder.js/140x140', alt='Generic placeholder image')
-            p
+        .col-lg-3      
         .col-lg-6  
-          #recCase#recipeDisplay  
-
+          #recipeDisplay  
+        .col-lg-3
    
       footer
         p.pull-right
-          a(href='#') Back to top
+          a(href='') Back to top
         p
-          | &copy; 2013 greeGree Company&comma; Inc&period; &middot;
+          | &copy; 2013 greeGree Company&comma; Inc&period;
     

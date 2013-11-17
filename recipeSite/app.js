@@ -26,23 +26,23 @@ if ('development' == app.get('env')) {
 }
 
 //Error Handling Handles 500 error, might need to develop more surroding this.
-// app.use(function(err, req, res, next){
-//   res.status(err.status || 500);
-//   res.render('500.jade', {title: 'Oops! something broke'});
-// });
+app.use(function(err, req, res, next){
+  res.status(err.status || 500);
+  res.render('500.jade', {title: 'Oops! something broke'});
+});
 
-// // handle 404 errors by redirect to 404
-// //*MUST BE LAST OF APP.USE
-// app.use(function(req,res){
-//     res.render('404.jade', {title: "Page not found"});
-// });
+// handle 404 errors by redirect to 404
+//*MUST BE LAST OF APP.USE
+app.use(function(req,res){
+    res.render('404.jade', {title: "Page not found"});
+});
 
 //Creates server and loads express with the above environments set
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server); //sets the socket.io to listen on the server 
 
 app.get('/', routes.index); //sets start path to index in routes folder
 app.get('/recipes', routes.recipelist); //when user navigates to to this route we pass the database object
