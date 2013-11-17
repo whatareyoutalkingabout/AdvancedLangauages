@@ -5,13 +5,12 @@ $(document).ready(function() {
 	var socket = io.connect('http://localhost:3000');
 
 $('#button').click(function(e){
-	console.log("works");
-	// e.preventDefault();
+	e.preventDefault();
 	// console.log(obj);
-	// socket.emit('insertObj', createJSON());
-	// socket.on('recipeInserted', function(){
-	// 	alert('inserted');
-	// });
+	socket.emit('insertObj', createJSON());
+	socket.on('recipeInserted', function(){
+		alert('inserted');
+	});
 });
 
 
@@ -20,29 +19,29 @@ $('#button').click(function(e){
 
 	function createJSON(){
 		var obj = {};
-		obj['name'] = $('#name').text();
-		obj['nameid'] = $('#nameID').text();
+		obj['name'] = $('#name').val();
+		obj['nameid'] = $('#nameID').val();
 		obj['ingredient'] = [
-			$('#ingred1').text(),
-			$('#ingred2').text(),
-			$('#ingred3').text(),
-			$('#ingred4').text(),			
-			$('#ingred5').text(),
-			$('#ingred6').text(),
-			$('#ingred7').text(),
-			$('#ingred8').text()
+			$('#ingred1').val(),
+			$('#ingred2').val(),
+			$('#ingred3').val(),
+			$('#ingred4').val(),			
+			$('#ingred5').val(),
+			$('#ingred6').val(),
+			$('#ingred7').val(),
+			$('#ingred8').val()
 		];
 		obj['note'] = [
-			$('#note1').text(),
-			$('#note2').text(),
-			$('#note3').text(),
-			$('#note4').text(),
-			$('#note5').text(),
-			$('#note6').text()
+			$('#note1').val(),
+			$('#note2').val(),
+			$('#note3').val(),
+			$('#note4').val(),
+			$('#note5').val(),
+			$('#note6').val()
 		];
-		odj['garnish'] = $('#garnish').text();
-		obj['foodType'] = $('#recipeType').text();
-		obj['glassType'] = $('#glassType').text();
+		obj['garnish'] = $('#garnish').val();
+		obj['type'] = $('#foodType').val();
+		obj['glass'] = $('#glassType').val();
 		return obj;
 	}
 
