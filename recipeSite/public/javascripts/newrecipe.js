@@ -77,6 +77,7 @@ $('#insert-yes').click(function(e){
 			// if($('#ingred8').val() != ""){
 			// 	,$('#ingred8').val()
 			// }
+			$('#ingred1').val(),
 			$('#ingred2').val(),
 			$('#ingred3').val(),
 			$('#ingred4').val(),			

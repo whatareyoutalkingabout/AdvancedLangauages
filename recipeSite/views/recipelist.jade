@@ -24,7 +24,9 @@ block content
               b.caret
             ul#dropFood.dropdown-menu
           li
-            a(href='../newrecipe') Add a Recipe  
+            a(href='../newrecipe') Add a Recipe 
+        #buttonDiv    
+          input#tags   
     #myCarousel.carousel.slide.carouselContainer
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
@@ -58,10 +60,10 @@ block content
     .container.marketing.recipePadding
 
       .row
-        .col-lg-3      
-        .col-lg-6  
+        .col-md-3#col2padding
+        .col-md-6  
           #recipeDisplay  
-        .col-lg-3
+        .col-md-3#col2padding
    
       footer
         p.pull-right

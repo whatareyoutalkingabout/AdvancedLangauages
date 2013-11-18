@@ -44,12 +44,20 @@ body{
 }
 .text-large-ul{
     font-size: 32px;
-/*    font-family: 'Fascinate Inline', cursive;*/
+    font-family: 'Fascinate Inline', cursive;
 }
 
 .title{
     font-size: 32px;
-/*    font-family: 'Fascinate Inline', cursive;*/
+    font-family: 'Fascinate Inline', cursive;
+}
+
+#recipeDisplay{
+    /*margin: 0 15% 0 15%;*/
+}
+
+#newRecipeHeader{
+    padding-left: 15px
 }
 
 #recCase{
