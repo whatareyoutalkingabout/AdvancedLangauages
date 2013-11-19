@@ -23,6 +23,15 @@ body{
   max-width: none;
 }
 
+#search{
+  padding: 12px;
+  float: right;
+}
+
+.search-div{
+  float: right
+}
+
 /*.carouselContainer{
     height: 100%;
 }*/

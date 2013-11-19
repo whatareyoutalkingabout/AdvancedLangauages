@@ -44,7 +44,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 
 var io = require('socket.io').listen(server); //sets the socket.io to listen on the server 
 
-app.get('/', routes.index); //sets start path to index in routes folder
+app.get('/', routes.recipelist); //sets start path to index in routes folder
 app.get('/recipes', routes.recipelist); //when user navigates to to this route we pass the database object
 app.get('/recipes/:key', routes.recipelist); //if user enters a recipe ID after the slash it will display recipe on page
 // app.get('/myrecipes/:text'routes.myrecipes(request.params.text));

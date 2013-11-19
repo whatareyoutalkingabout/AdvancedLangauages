@@ -24,9 +24,10 @@ block content
               b.caret
             ul#dropFood.dropdown-menu
           li
-            a(href='../newrecipe') Add a Recipe 
-        #buttonDiv    
-          input#tags   
+            a(href='../newrecipe') Add a Recipe  
+        //.search-div    
+          form.navbar-search.pull-left#search 
+            input.search-query#tags(type="text" placeholder="Search") 
     #myCarousel.carousel.slide.carouselContainer
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')

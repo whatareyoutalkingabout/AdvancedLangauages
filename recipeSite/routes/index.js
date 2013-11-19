@@ -94,7 +94,19 @@ exports.newrecipe = function(db, io){
                     // console.log(cocktails);
                 }
             });
-        });        
+        }); 
+
+        socket.on('getList', function(){
+            db.Drinks.find({},{name: 1, nameid: 1}, function(err, list){
+                if(err) console.log("food not found.");
+                else {
+                    // Drinks.forEach(function(designer){
+                    // drinkList = cocktails;
+                    socket.emit('setList', list);
+                    // console.log(list);
+                }
+            });
+        });                
 
         socket.on('getRecipe', function(data){
             db.Drinks.find({nameid: data},{}, function(err, recipe){

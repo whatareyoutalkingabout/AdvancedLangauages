@@ -10,7 +10,7 @@ $(document).ready(function(){
   $("#foodType").chosen({allow_single_deselect: true}); 
   $("#glassType").chosen({allow_single_deselect: true}); 
 
-  $('#cocktailList').click(function(){
+  // $('#cocktailList').click(function(){
     socket.emit('getCocktailList'); //collects data and sends to index
     socket.on('setCocktailList', function(data){ //recienves data from query in index.js
       $("#dropCockails").html("");
@@ -39,14 +39,13 @@ $(document).ready(function(){
         });
       });
     });
-  });
+  // });
   //Same as above
-  $('#foodList').click(function(){
+  // $('#foodList').click(function(){
     socket.emit('getFoodList');
     socket.on('setFoodList', function(data){
       $("#dropFood").html("");
       $.each(data, function(i, value){
-        console.log(value);
         $("#dropFood").append("<li><a id='"+value.nameid+"'>"+ value.name+"</a></li>");
       });
       $('#dropFood li a').click(function(e){
@@ -70,8 +69,56 @@ $(document).ready(function(){
         });
       });
     });
-  });
+  // });
 
+    // socket.emit('getList');
+    // socket.on('setList', function(data){
+    //   // console.log(data);
+    //   var availableTags = '[';
+    //   $.each(data, function(i, value){
+    //     availableTags.append("'"+value.name+"'");
+    //      // console.log(value.name);
+    //     availableTags.append("];");
+    //   });
+    //           $( "#tags" ).autocomplete({
+    //       source: availableTags
+    //     }); 
+    //  }); 
+
+
+  // $('#search').click(function(){
+  //   socket.emit('getList');
+  //   socket.on('setList', function(data){
+  //     // console.log(data);
+  //     // var availableTags = $('[');
+  //     $.each(data.name, function(i, value){
+  //        // availableTags.append(",'" + value + "'");
+  //        // console.log(value);
+  //     });
+  //     // availableTags.append("];");
+  //     // console.log(availableTags);    
+  //     // $('#dropFood li a').click(function(e){
+  //     //   e.preventDefault();
+  //     //   socket.emit('getRecipe',$(this).prop('id'));
+  //     //   socket.on('setRecipe', function(data){
+  //     //     $("#recipeDisplay").html("<p class='text-large-ul text-center'>"
+  //     //       + data.name + "</p>"
+  //     //       + "<p>" + "Ingredients" + "</p>");
+  //     //     var unorderedList = $("<ul>");
+  //     //     $.each(data.ingredient, function(i, value){
+  //     //       unorderedList.append("<li>"+value+"</li>");
+  //     //     });
+  //     //     $("#recipeDisplay").append(unorderedList);
+  //     //     $("#recipeDisplay").append("<p>Directions</p>");
+  //     //     var orderList = $('<ol>');
+  //     //     $.each(data.note, function(i, value){
+  //     //       orderList.append("<li>"+value+"</li>");
+  //     //     });
+  //     //     $("#recipeDisplay").append(orderList);
+  //     //   });
+  //     // });
+  //   });
+  // });
     // var availableTags = [
     //   "ActionScript",
     //   "AppleScript",
