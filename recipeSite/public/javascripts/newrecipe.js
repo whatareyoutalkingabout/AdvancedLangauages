@@ -8,7 +8,7 @@ $(document).ready(function() {
 //sent to index.js to be inserted into the database.
 //socket.on recieves confirmation the recipe
 //was inserted and displays confirmation box
-$('#button').click(function(e){
+$('#button').click(function(e){ //loads fields onto modal
 	e.preventDefault();
           $("#confirmRecipe").html("<p class='text-large-ul text-center'>"
             + "Name: " + $('#name').val() + "</p>"
@@ -41,8 +41,8 @@ $('#button-cancel').click(function(){
 
 $('#insert-yes').click(function(e){
 	e.preventDefault();
-	socket.emit('insertObj', createJSON());
-	socket.on('recipeInserted', function(){	
+	socket.emit('insertObj', createJSON()); //sends createJSON variable as insertObj
+	socket.on('recipeInserted', function(){	//when response recieved hides modal and clears fields
 	$('#modalConfirm').modal('hide');
 	$('#form').find("input, textarea").val("");
 	});

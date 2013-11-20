@@ -10,7 +10,6 @@ $(document).ready(function(){
   $("#foodType").chosen({allow_single_deselect: true}); 
   $("#glassType").chosen({allow_single_deselect: true}); 
 
-  // $('#cocktailList').click(function(){
     socket.emit('getCocktailList'); //collects data and sends to index
     socket.on('setCocktailList', function(data){ //recienves data from query in index.js
       $("#dropCockails").html("");
@@ -39,9 +38,8 @@ $(document).ready(function(){
         });
       });
     });
-  // });
+
   //Same as above
-  // $('#foodList').click(function(){
     socket.emit('getFoodList');
     socket.on('setFoodList', function(data){
       $("#dropFood").html("");
@@ -69,7 +67,6 @@ $(document).ready(function(){
         });
       });
     });
-  // });
 
     // socket.emit('getList');
     // socket.on('setList', function(data){

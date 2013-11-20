@@ -1,7 +1,12 @@
+/*
+* Creator: Greg Nikitin
+* Course: CST8333 Advanced Languages
+* Prof: Stanley Pieda
+* Date: Nov. 20 2013
+*/
 
 var express = require('express'); //accesses express framework
 var routes = require('./routes'); //accesses routes folder
-var user = require('./routes/user'); //accesses routes/user
 var http = require('http'); //gets http framework
 var path = require('path'); //used to set paths
 var databaseUrl = "recipetest:recipetest@ds051868.mongolab.com:51868/recipes"; // "username:password@example.com/mydb"
@@ -49,5 +54,15 @@ app.get('/recipes', routes.recipelist); //when user navigates to to this route w
 app.get('/recipes/:key', routes.recipelist); //if user enters a recipe ID after the slash it will display recipe on page
 // app.get('/myrecipes/:text'routes.myrecipes(request.params.text));
 app.get('/newrecipe', routes.newrecipe(db, io)); //for adding a path to newrecipe
+
+//Each time the server is restarted it adds a new line to the file.
+// var fs = require('fs'); //import file system
+// fs.appendFile('fileStore/testFileIO.txt', 'The server was restarted\n', function (err) {
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log("The file was saved!");
+//     }
+// });
 
  
